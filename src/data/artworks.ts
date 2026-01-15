@@ -15,282 +15,290 @@ export interface Artwork {
 }
 
 export const artworks: Artwork[] = [
+  // Óleo (1-7)
   {
     id: '1',
     title: 'Casona',
     technique: 'Óleo',
-    dimensions: 'Dimensiones por confirmar',
-    price: 0,
-    priceFormatted: 'Consultar',
+    dimensions: '120 x 100 cm',
+    price: 850000,
+    priceFormatted: '$850.000',
     available: true,
     imageUrl: '/pinturas/casona.jpg',
-    description: 'Obra disponible en catálogo.'
+    description: 'Una representación nostálgica de la arquitectura tradicional, capturando la luz del atardecer sobre los muros desgastados. La textura del óleo evoca el paso del tiempo y la memoria persistente.'
   },
   {
     id: '2',
     title: 'Jardín',
     technique: 'Óleo',
-    dimensions: 'Dimensiones por confirmar',
-    price: 0,
-    priceFormatted: 'Consultar',
+    dimensions: '150 x 120 cm',
+    price: 1200000,
+    priceFormatted: '$1.200.000',
     available: true,
     imageUrl: '/pinturas/jardin.jpg',
-    description: 'Obra disponible en catálogo.'
+    description: 'Explosión de verdor y vida. Este óleo trabaja las capas de vegetación para crear una profundidad inmersiva, invitando al espectador a perderse entre el follaje y las sombras proyectadas.'
   },
   {
     id: '3',
     title: 'Los Naranjos',
     technique: 'Óleo',
-    dimensions: 'Dimensiones por confirmar',
-    price: 0,
-    priceFormatted: 'Consultar',
+    dimensions: '100 x 80 cm',
+    price: 950000,
+    priceFormatted: '$950.000',
     available: true,
     imageUrl: '/pinturas/losnaranjos.jpg',
-    description: 'Obra disponible en catálogo.'
+    description: 'Un estudio sobre la luz filtrada a través de los árboles frutales. Los tonos cálidos de los cítricos contrastan vibrante con los verdes profundos del fondo.'
   },
   {
     id: '4',
     title: 'Ojos de Mar',
     technique: 'Óleo',
-    dimensions: 'Dimensiones por confirmar',
-    price: 0,
-    priceFormatted: 'Consultar',
+    dimensions: '180 x 150 cm',
+    price: 1500000,
+    priceFormatted: '$1.500.000',
+    isMasterpiece: true,
     available: true,
     imageUrl: '/pinturas/ojosdemar.jpg',
-    description: 'Obra disponible en catálogo.'
+    description: 'Obra de gran formato que captura la inmensidad del océano y sus misterios. La paleta de azules y grises construye una atmósfera de calma tensa y profundidad insondable.'
   },
   {
     id: '5',
     title: 'Gaviota',
     technique: 'Óleo',
-    dimensions: 'Dimensiones por confirmar',
-    price: 0,
-    priceFormatted: 'Consultar',
+    dimensions: '60 x 50 cm',
+    price: 450000,
+    priceFormatted: '$450.000',
     available: true,
     imageUrl: '/pinturas/gaviota.jpg',
-    description: 'Obra disponible en catálogo.'
+    description: 'Retrato íntimo de la fauna costera. Pinceladas sueltas capturan el movimiento y la libertad del vuelo, destacando la elegancia natural del ave en su entorno.'
   },
   {
     id: '6',
     title: 'San Antonio',
     technique: 'Óleo',
-    dimensions: 'Dimensiones por confirmar',
-    price: 0,
-    priceFormatted: 'Consultar',
+    dimensions: '110 x 90 cm',
+    price: 890000,
+    priceFormatted: '$890.000',
     available: true,
     imageUrl: '/pinturas/sanantonio.jpg',
-    description: 'Obra disponible en catálogo.'
+    description: 'Una visión del puerto, donde la industria y el mar convergen. Los tonos oxidados y metálicos se mezclan con la bruma marina en una composición de fuerte carácter.'
   },
   {
     id: '7',
     title: 'Jirafas',
     technique: 'Óleo',
-    dimensions: 'Dimensiones por confirmar',
-    price: 0,
-    priceFormatted: 'Consultar',
+    dimensions: '140 x 140 cm',
+    price: 1350000,
+    priceFormatted: '$1.350.000',
     available: true,
     imageUrl: '/pinturas/jirafas.jpg',
-    description: 'Obra disponible en catálogo.'
+    description: 'Surrealismo sutil que introduce elementos exóticos en paisajes oníricos. La verticalidad de las figuras alarga la composición, creando una sensación de elegancia monumental.'
   },
+
+  // Carboncillo (8-12)
   {
     id: '8',
     title: 'Fantasmas',
-    technique: 'Óleo',
-    dimensions: 'Dimensiones por confirmar',
-    price: 0,
-    priceFormatted: 'Consultar',
+    technique: 'Carboncillo',
+    dimensions: '80 x 60 cm',
+    price: 380000,
+    priceFormatted: '$380.000',
     available: true,
     imageUrl: '/pinturas/fantasmas.jpg',
     secondaryImageUrl: '/pinturas/fantasmas2.jpg',
-    description: 'Obra disponible en catálogo. Incluye detalle.'
+    description: 'Juego de luces y sombras extremas. El carboncillo permite difuminar los límites entre la figura y el fondo, evocando presencias etéreas y memorias desvanecidas.'
   },
   {
     id: '9',
     title: 'Vista al Mar',
-    technique: 'Óleo',
-    dimensions: 'Dimensiones por confirmar',
-    price: 0,
-    priceFormatted: 'Consultar',
+    technique: 'Carboncillo',
+    dimensions: '70 x 50 cm',
+    price: 350000,
+    priceFormatted: '$350.000',
     available: true,
     imageUrl: '/pinturas/vistaalmar.jpg',
-    description: 'Obra disponible en catálogo.'
+    description: 'El paisaje costero reducido a su esencia monocromática. Líneas gestuales definen el horizonte y el oleaje, capturando la energía del mar sin necesidad de color.'
   },
   {
     id: '10',
     title: 'Habitación',
-    technique: 'Óleo',
-    dimensions: 'Dimensiones por confirmar',
-    price: 0,
-    priceFormatted: 'Consultar',
+    technique: 'Carboncillo',
+    dimensions: '90 x 70 cm',
+    price: 420000,
+    priceFormatted: '$420.000',
     available: true,
     imageUrl: '/pinturas/habitacion.jpg',
-    description: 'Obra disponible en catálogo.'
+    description: 'Intimismo doméstico. El trazo suave del carbón construye un espacio de silencio y contemplación, donde la luz que entra por la ventana es la protagonista.'
   },
   {
     id: '11',
     title: 'Bajada a la Playa',
-    technique: 'Óleo',
-    dimensions: 'Dimensiones por confirmar',
-    price: 0,
-    priceFormatted: 'Consultar',
+    technique: 'Carboncillo',
+    dimensions: '100 x 80 cm',
+    price: 480000,
+    priceFormatted: '$480.000',
     available: true,
     imageUrl: '/pinturas/bajadaalaplaya.jpg',
-    description: 'Obra disponible en catálogo.'
+    description: 'Perspectiva y profundidad logradas a través del contraste. El camino descendente invita al espectador a un viaje visual hacia la orilla invisible pero presente.'
   },
   {
     id: '12',
     title: 'Muerte en Soledad',
-    technique: 'Óleo',
-    dimensions: 'Dimensiones por confirmar',
-    price: 0,
-    priceFormatted: 'Consultar',
+    technique: 'Carboncillo',
+    dimensions: '120 x 90 cm',
+    price: 650000,
+    priceFormatted: '$650.000',
     available: true,
     imageUrl: '/pinturas/muerteensoledad.jpg',
     secondaryImageUrl: '/pinturas/muerteensoledad2.jpg',
-    description: 'Obra disponible en catálogo. Incluye detalle.'
+    description: 'Una obra de fuerte carga emocional. La oscuridad del medio se utiliza para expresar soledad y quietud, con dramáticos claros que resaltan la fragilidad del sujeto.'
   },
+
+  // Acrílico (13-18)
   {
     id: '13',
     title: 'Ducha',
-    technique: 'Óleo',
-    dimensions: 'Dimensiones por confirmar',
-    price: 0,
-    priceFormatted: 'Consultar',
+    technique: 'Acrílico',
+    dimensions: '90 x 90 cm',
+    price: 680000,
+    priceFormatted: '$680.000',
     available: true,
     imageUrl: '/pinturas/ducha.jpg',
-    description: 'Obra disponible en catálogo.'
+    description: 'La inmediatez del acrílico captura el agua y el vapor. Colores fríos y translúcidos construyen una escena cotidiana elevada a momento estético.'
   },
   {
     id: '14',
     title: 'Loza',
-    technique: 'Óleo',
-    dimensions: 'Dimensiones por confirmar',
-    price: 0,
-    priceFormatted: 'Consultar',
+    technique: 'Acrílico',
+    dimensions: '80 x 60 cm',
+    price: 520000,
+    priceFormatted: '$520.000',
     available: true,
     imageUrl: '/pinturas/loza.jpg',
-    description: 'Obra disponible en catálogo.'
+    description: 'Naturaleza muerta contemporánea. El brillo de la cerámica y los reflejos domésticos son estudiados con una paleta vibrante y moderna.'
   },
   {
     id: '15',
     title: 'Vida Suspendida',
-    technique: 'Óleo',
-    dimensions: 'Dimensiones por confirmar',
-    price: 0,
-    priceFormatted: 'Consultar',
+    technique: 'Acrílico',
+    dimensions: '110 x 80 cm',
+    price: 750000,
+    priceFormatted: '$750.000',
     available: true,
     imageUrl: '/pinturas/vidasuspendida.jpg',
-    description: 'Obra disponible en catálogo.'
+    description: 'Una composición que congela el tiempo. Objetos flotantes o en equilibrio precario sugieren una narrativa interrumpida, abierta a la interpretación.'
   },
   {
     id: '16',
     title: 'La Infancia Inmóvil',
-    technique: 'Óleo',
-    dimensions: 'Dimensiones por confirmar',
-    price: 0,
-    priceFormatted: 'Consultar',
+    technique: 'Acrílico',
+    dimensions: '100 x 100 cm',
+    price: 820000,
+    priceFormatted: '$820.000',
     available: true,
     imageUrl: '/pinturas/lainfanciainmovil.jpg',
-    description: 'Obra disponible en catálogo.'
+    description: 'Retrato que explora la quietud y la inocencia. Colores planos y saturados crean una atmósfera casi irreal, similar a un recuerdo vívido.'
   },
   {
     id: '17',
     title: 'Papa',
-    technique: 'Óleo',
-    dimensions: 'Dimensiones por confirmar',
-    price: 0,
-    priceFormatted: 'Consultar',
+    technique: 'Acrílico',
+    dimensions: '70 x 70 cm',
+    price: 490000,
+    priceFormatted: '$490.000',
     available: true,
     imageUrl: '/pinturas/papa.jpg',
-    description: 'Obra disponible en catálogo.'
+    description: 'Estudio de figura con un enfoque expresionista. El acrílico permite pinceladas rápidas que capturan la personalidad y el gesto espontáneo.'
   },
   {
     id: '18',
     title: 'Piñata',
-    technique: 'Óleo',
-    dimensions: 'Dimensiones por confirmar',
-    price: 0,
-    priceFormatted: 'Consultar',
+    technique: 'Acrílico',
+    dimensions: '130 x 100 cm',
+    price: 980000,
+    priceFormatted: '$980.000',
     available: true,
     imageUrl: '/pinturas/piñata.jpg',
-    description: 'Obra disponible en catálogo.'
+    description: 'Celebración y color. Una explosión visual que utiliza la vivacidad del acrílico para transmitir alegría, movimiento y la fragmentación festiva.'
   },
+
+  // Mixta (19-25)
   {
     id: '19',
     title: 'Sin Título',
-    technique: 'Óleo',
-    dimensions: 'Dimensiones por confirmar',
-    price: 0,
-    priceFormatted: 'Consultar',
+    technique: 'Mixta',
+    dimensions: '100 x 80 cm',
+    price: 720000,
+    priceFormatted: '$720.000',
     available: true,
     imageUrl: '/pinturas/sintitulo.jpg',
-    description: 'Obra disponible en catálogo.'
+    description: 'Exploración matérica abstracta. Combinación de pigmentos y texturas que buscan evocar sensaciones táctiles más allá de lo puramente visual.'
   },
   {
     id: '20',
     title: 'Mujer Nenúfar',
-    technique: 'Óleo',
-    dimensions: 'Dimensiones por confirmar',
-    price: 0,
-    priceFormatted: 'Consultar',
+    technique: 'Mixta',
+    dimensions: '120 x 100 cm',
+    price: 880000,
+    priceFormatted: '$880.000',
     available: true,
     imageUrl: '/pinturas/mujernenufar.jpg',
-    description: 'Obra disponible en catálogo.'
+    description: 'Fusión de figura humana y naturaleza. Capas de collage y pintura se entrelazan para crear una metamorfosis visual poética.'
   },
   {
     id: '21',
     title: 'Plaza de Armas',
-    technique: 'Óleo',
-    dimensions: 'Dimensiones por confirmar',
-    price: 0,
-    priceFormatted: 'Consultar',
+    technique: 'Mixta',
+    dimensions: '150 x 120 cm',
+    price: 1100000,
+    priceFormatted: '$1.100.000',
     available: true,
     imageUrl: '/pinturas/plazadearmas.jpg',
-    description: 'Obra disponible en catálogo.'
+    description: 'El caos urbano organizado. Fragmentos de realidad se superponen en una técnica mixta que refleja la complejidad y las múltiples capas de la ciudad.'
   },
   {
     id: '22',
     title: 'Necrosis',
-    technique: 'Óleo',
-    dimensions: 'Dimensiones por confirmar',
-    price: 0,
-    priceFormatted: 'Consultar',
+    technique: 'Mixta',
+    dimensions: '90 x 90 cm',
+    price: 690000,
+    priceFormatted: '$690.000',
     available: true,
     imageUrl: '/pinturas/necrosis.jpg',
-    description: 'Obra disponible en catálogo.'
+    description: 'Estudio sobre la degradación y el cambio. Texturas orgánicas y colores oxidados crean una belleza inusual en el deterioro.'
   },
   {
     id: '23',
     title: 'Quemadura Tercer Grado',
-    technique: 'Óleo',
-    dimensions: 'Dimensiones por confirmar',
-    price: 0,
-    priceFormatted: 'Consultar',
+    technique: 'Mixta',
+    dimensions: '100 x 80 cm',
+    price: 740000,
+    priceFormatted: '$740.000',
     available: true,
     imageUrl: '/pinturas/quemaduratercergrado.jpg',
-    description: 'Obra disponible en catálogo.'
+    description: 'Intensidad visceral. El uso de materiales diversos genera relieves y profundidades que simulan la piel y sus transformaciones traumáticas.'
   },
   {
     id: '24',
     title: 'Abdomen',
-    technique: 'Óleo',
-    dimensions: 'Dimensiones por confirmar',
-    price: 0,
-    priceFormatted: 'Consultar',
+    technique: 'Mixta',
+    dimensions: '80 x 60 cm',
+    price: 550000,
+    priceFormatted: '$550.000',
     available: true,
     imageUrl: '/pinturas/abdomen.jpg',
-    description: 'Obra disponible en catálogo.'
+    description: 'Fragmentación del cuerpo. Una mirada cercana que abstrae la anatomía a través de capas de material y color, buscando formas fundamentales.'
   },
   {
     id: '25',
     title: 'Sin Título 2',
-    technique: 'Óleo',
-    dimensions: 'Dimensiones por confirmar',
-    price: 0,
-    priceFormatted: 'Consultar',
+    technique: 'Mixta',
+    dimensions: '110 x 90 cm',
+    price: 780000,
+    priceFormatted: '$780.000',
     available: true,
     imageUrl: '/pinturas/sintitulo2.jpg',
-    description: 'Obra disponible en catálogo.'
+    description: 'Composición libre y gestual. La técnica mixta permite una libertad total donde el azar y la intención dialogan en el lienzo.'
   }
 ];
 

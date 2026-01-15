@@ -104,7 +104,7 @@ export const ArtworkModal = ({
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-50 p-2 rounded-full bg-white/80 text-foreground hover:bg-white hover:text-primary transition-colors shadow-sm"
+              className="absolute top-4 right-4 z-50 p-2 rounded-full bg-white/80 text-neutral-900 hover:bg-white hover:text-primary transition-colors shadow-sm"
               aria-label="Cerrar"
             >
               <X size={24} strokeWidth={1.5} />
@@ -124,13 +124,13 @@ export const ArtworkModal = ({
                 <>
                   <button
                     onClick={toggleImage}
-                    className="absolute left-6 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/80 text-foreground hover:text-primary backdrop-blur-md shadow-sm transition-all opacity-0 group-hover:opacity-100"
+                    className="absolute left-6 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/80 text-neutral-900 hover:text-primary backdrop-blur-md shadow-sm transition-all opacity-0 group-hover:opacity-100"
                   >
                     <ChevronLeft size={20} />
                   </button>
                   <button
                     onClick={toggleImage}
-                    className="absolute right-6 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/80 text-foreground hover:text-primary backdrop-blur-md shadow-sm transition-all opacity-0 group-hover:opacity-100"
+                    className="absolute right-6 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/80 text-neutral-900 hover:text-primary backdrop-blur-md shadow-sm transition-all opacity-0 group-hover:opacity-100"
                   >
                     <ChevronRight size={20} />
                   </button>
@@ -157,24 +157,24 @@ export const ArtworkModal = ({
                   <span className="text-primary text-[10px] font-bold uppercase tracking-[0.3em] mb-4 block">
                     Detalles de la Obra
                   </span>
-                  <h2 className="font-display text-3xl md:text-4xl font-normal text-foreground mb-4 tracking-tight">
+                  <h2 className="font-display text-3xl md:text-4xl font-normal text-neutral-900 mb-4 tracking-tight">
                     {artwork.title}
                   </h2>
                   <div className="w-12 h-[2px] bg-primary mb-8" />
 
                   <div className="flex flex-wrap gap-4 mb-8">
                     <div className="flex flex-col">
-                      <span className="text-[10px] text-muted-foreground uppercase tracking-widest mb-1">Técnica</span>
-                      <span className="text-sm font-medium text-foreground border-b border-gray-200 pb-1">{artwork.technique}</span>
+                      <span className="text-[10px] text-neutral-500 uppercase tracking-widest mb-1">Técnica</span>
+                      <span className="text-sm font-medium text-neutral-900 border-b border-gray-200 pb-1">{artwork.technique}</span>
                     </div>
                     <div className="flex flex-col ml-4">
-                      <span className="text-[10px] text-muted-foreground uppercase tracking-widest mb-1">Dimensiones</span>
-                      <span className="text-sm font-medium text-foreground border-b border-gray-200 pb-1">{artwork.dimensions}</span>
+                      <span className="text-[10px] text-neutral-500 uppercase tracking-widest mb-1">Dimensiones</span>
+                      <span className="text-sm font-medium text-neutral-900 border-b border-gray-200 pb-1">{artwork.dimensions}</span>
                     </div>
                   </div>
 
                   {artwork.description && (
-                    <p className="text-muted-foreground text-base font-light leading-relaxed">
+                    <p className="text-neutral-600 text-base font-light leading-relaxed">
                       {artwork.description}
                     </p>
                   )}
@@ -185,8 +185,8 @@ export const ArtworkModal = ({
                 <div className="flex flex-col gap-6">
                   <div className="flex justify-between items-end">
                     <div>
-                      <p className="text-xs text-muted-foreground uppercase tracking-widest mb-1">Precio Colección</p>
-                      <p className="font-display text-3xl font-normal text-foreground">
+                      <p className="text-xs text-neutral-500 uppercase tracking-widest mb-1">Precio Colección</p>
+                      <p className="font-display text-3xl font-normal text-neutral-900">
                         {artwork.priceFormatted}
                       </p>
                     </div>
@@ -207,14 +207,14 @@ export const ArtworkModal = ({
                     <button
                       onClick={handlePrev}
                       disabled={!hasPrev}
-                      className="flex-1 py-4 px-4 border border-gray-200 text-foreground disabled:opacity-30 text-xs uppercase tracking-widest flex items-center justify-center gap-2 active:bg-gray-50"
+                      className="flex-1 py-4 px-4 border border-gray-200 text-neutral-900 disabled:opacity-30 text-xs uppercase tracking-widest flex items-center justify-center gap-2 active:bg-gray-50"
                     >
                       <ChevronLeft size={16} /> Anterior
                     </button>
                     <button
                       onClick={handleNext}
                       disabled={!hasNext}
-                      className="flex-1 py-4 px-4 border border-gray-200 text-foreground disabled:opacity-30 text-xs uppercase tracking-widest flex items-center justify-center gap-2 active:bg-gray-50"
+                      className="flex-1 py-4 px-4 border border-gray-200 text-neutral-900 disabled:opacity-30 text-xs uppercase tracking-widest flex items-center justify-center gap-2 active:bg-gray-50"
                     >
                       Siguiente <ChevronRight size={16} />
                     </button>
