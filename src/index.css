@@ -9,29 +9,29 @@
 
 @layer base {
   :root {
-    /* Paleta Principal - Mármol & Oro Satinado */
-    --background: 0 0% 98%;
+    /* Paleta Principal - Mármol & Oro Satinado (Dark Mode) */
+    --background: 0 0% 0%;
+    /* #000000 - Pure Black */
+    --foreground: 0 0% 98%;
     /* #FAFAFA - Marble White */
-    --foreground: 0 0% 7%;
-    /* #111111 - Charcoal */
 
-    --card: 0 0% 98%;
-    --card-foreground: 0 0% 7%;
+    --card: 0 0% 3%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 98%;
-    --popover-foreground: 0 0% 7%;
+    --popover: 0 0% 3%;
+    --popover-foreground: 0 0% 98%;
 
     /* Colores de Marca */
     --primary: 40 47% 56%;
     /* #C5A059 - Satin Gold */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 7%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 40%;
-    /* #666666 - Stone Grey */
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 60%;
+    /* #999999 - Stone Grey */
 
     --accent: 40 47% 56%;
     --accent-foreground: 0 0% 100%;
@@ -39,9 +39,9 @@
     --destructive: 0 60% 40%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 83%;
-    /* #d4d4d4 - Very subtle border */
-    --input: 0 0% 83%;
+    --border: 0 0% 20%;
+    /* #333333 - Very subtle border */
+    --input: 0 0% 20%;
     --ring: 40 47% 56%;
 
     --radius: 0rem;
@@ -51,32 +51,20 @@
     --whatsapp: 142 70% 50%;
     --whatsapp-foreground: 0 0% 100%;
 
-    /* Sombras Minimalistas (Casi inexistentes o muy sutiles) */
-    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.03);
-    --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.04);
-    --shadow-artwork: 0 12px 32px rgba(0, 0, 0, 0.06);
+    /* Sombras Minimalistas (Adaptadas a Dark Mode) */
+    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.4);
+    --shadow-artwork: 0 12px 32px rgba(0, 0, 0, 0.6);
 
     /* Variables de Sidebar */
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 0 0% 7%;
+    --sidebar-background: 0 0% 3%;
+    --sidebar-foreground: 0 0% 98%;
     --sidebar-primary: 40 47% 56%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 96%;
-    --sidebar-accent-foreground: 0 0% 7%;
-    --sidebar-border: 0 0% 83%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 20%;
     --sidebar-ring: 40 47% 56%;
-  }
-
-  .dark {
-    /* No se usa modo oscuro, forzamos light luxury */
-    --background: 0 0% 98%;
-    --foreground: 0 0% 7%;
-    --card: 0 0% 98%;
-    --card-foreground: 0 0% 7%;
-    --primary: 40 47% 56%;
-    --primary-foreground: 0 0% 100%;
-    --accent: 40 47% 56%;
-    --accent-foreground: 0 0% 100%;
   }
 }
 
@@ -104,7 +92,7 @@
   h6 {
     font-family: 'Playfair Display', Georgia, serif;
     @apply tracking-wide text-foreground;
-    /* Títulos negros de alto contraste */
+    /* Títulos de alto contraste */
   }
 }
 
