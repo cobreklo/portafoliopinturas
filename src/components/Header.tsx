@@ -12,9 +12,9 @@ export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-white/5">
       <div className="container mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="font-display text-xl font-medium text-foreground">
+        <a href="#" className="font-display text-xl font-medium tracking-wide text-primary">
           MJP
         </a>
 
@@ -24,7 +24,7 @@ export const Header = () => {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-body text-muted-foreground hover:text-foreground transition-colors duration-200"
+              className="text-sm font-body font-medium text-muted-foreground hover:text-primary transition-colors duration-300"
             >
               {link.label}
             </a>
@@ -34,10 +34,10 @@ export const Header = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 text-foreground"
+          className="md:hidden p-2 text-foreground hover:bg-white/5 rounded-md transition-colors"
           aria-label="Toggle menu"
         >
-          {isOpen ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
+          {isOpen ? <X size={24} strokeWidth={1} /> : <Menu size={24} strokeWidth={1} />}
         </button>
       </div>
 
@@ -49,15 +49,15 @@ export const Header = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="md:hidden bg-background border-b border-border overflow-hidden"
+            className="md:hidden bg-background border-b border-white/5 overflow-hidden"
           >
-            <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
+            <div className="container mx-auto px-6 py-8 flex flex-col gap-6">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-lg font-display text-foreground py-2"
+                  className="text-lg font-display text-foreground py-2 border-b border-white/5"
                 >
                   {link.label}
                 </a>

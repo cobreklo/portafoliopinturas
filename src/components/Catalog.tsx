@@ -1,33 +1,33 @@
 import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight, Maximize2 } from 'lucide-react';
 import { artworks, techniques, type TechniqueFilter } from '@/data/artworks';
 import { ArtworkModal } from './ArtworkModal';
 import type { Artwork } from '@/data/artworks';
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 50 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as const },
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
   },
   exit: {
     opacity: 0,
     scale: 0.95,
-    transition: { duration: 0.2 },
+    transition: { duration: 0.3 },
   },
 };
 
-const GridItem = ({ 
-  artwork, 
-  index, 
-  onClick, 
-  onImageLoad, 
-  isLoaded 
-}: { 
-  artwork: Artwork; 
-  index: number; 
+const GridItem = ({
+  artwork,
+  index,
+  onClick,
+  onImageLoad,
+  isLoaded
+}: {
+  artwork: Artwork;
+  index: number;
   onClick: () => void;
   onImageLoad: (id: string) => void;
   isLoaded: boolean;
@@ -55,79 +55,75 @@ const GridItem = ({
       whileInView="visible"
       exit="exit"
       viewport={{ once: true, margin: '-50px' }}
-      transition={{ delay: index * 0.05 }}
+      transition={{ delay: index * 0.1 }}
       onClick={onClick}
-      className="cursor-pointer group w-full"
+      className="cursor-pointer group w-full mb-12"
     >
-      {/* Image Container - Museum Wall Style (Clean) */}
-      <div className="relative w-full overflow-hidden bg-muted mb-4 rounded-sm">
+      {/* Image Container - Pure & Clean */}
+      <div className="relative w-full overflow-hidden bg-zinc-100 shadow-sm transition-all duration-500 group-hover:shadow-md">
         {!isLoaded && (
-          <div className="absolute inset-0 animate-pulse bg-gradient-to-b from-muted to-accent" />
+          <div className="absolute inset-0 animate-pulse bg-gray-100" />
         )}
 
-        <img
-          src={currentImage}
-          alt={artwork.title}
-          loading="lazy"
-          onLoad={() => onImageLoad(artwork.id)}
-          className={`w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105 ${
-            isLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
-        />
-        
-        {/* Grid Item Carousel Controls */}
+        <div className="overflow-hidden">
+          <img
+            src={currentImage}
+            alt={artwork.title}
+            loading="lazy"
+            onLoad={() => onImageLoad(artwork.id)}
+            className={`w-full h-auto object-cover transition-all duration-700 group-hover:scale-[1.03] ${isLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
+          />
+        </div>
+
+        {/* Minimal Hover Overlay */}
+        <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+
+        </div>
+
+        {/* Carousel Controls - Minimal */}
         {hasMultipleImages && (
           <>
             <button
               onClick={handlePrevImage}
-              className={`absolute left-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-black/20 hover:bg-black/40 text-white backdrop-blur-sm transition-all ${
-                currentImgIndex === 1 ? 'opacity-100' : 'opacity-0 pointer-events-none'
-              }`}
+              className={`absolute left-0 top-1/2 -translate-y-1/2 p-2 text-white drop-shadow-md transition-all ${currentImgIndex === 1 ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                }`}
             >
               <ChevronLeft size={20} />
             </button>
             <button
               onClick={handleNextImage}
-              className={`absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-black/20 hover:bg-black/40 text-white backdrop-blur-sm transition-all ${
-                currentImgIndex === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'
-              }`}
+              className={`absolute right-0 top-1/2 -translate-y-1/2 p-2 text-white drop-shadow-md transition-all ${currentImgIndex === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                }`}
             >
               <ChevronRight size={20} />
             </button>
-            
-            {/* Dots */}
-            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
-              <div className={`w-1.5 h-1.5 rounded-full transition-colors ${currentImgIndex === 0 ? 'bg-white' : 'bg-white/50'}`} />
-              <div className={`w-1.5 h-1.5 rounded-full transition-colors ${currentImgIndex === 1 ? 'bg-white' : 'bg-white/50'}`} />
-            </div>
           </>
         )}
 
         {artwork.isMasterpiece && (
-          <span className="absolute top-3 left-3 tag-masterpiece">
-            Obra Maestra
+          <span className="absolute top-4 right-4 bg-white/90 backdrop-blur text-primary px-3 py-1 text-[9px] uppercase tracking-widest font-semibold shadow-sm">
+            Colección Privada
           </span>
         )}
       </div>
 
-      {/* Info - Museum Style (Minimal) */}
-      <div className="flex flex-col gap-1 px-1">
-        <div className="flex justify-between items-start gap-4">
-           <h3 className="font-display text-lg font-medium text-foreground group-hover:text-primary transition-colors">
-            {artwork.title}
-          </h3>
-          <p className="font-body text-sm font-medium text-foreground whitespace-nowrap">
-             {artwork.priceFormatted}
+      {/* Info - Clean Editorial Style */}
+      <div className="mt-6 text-center">
+        <h3 className="font-display text-2xl text-foreground font-medium mb-2 group-hover:text-primary transition-colors duration-300">
+          {artwork.title}
+        </h3>
+
+        <div className="flex flex-col gap-2 items-center">
+          <p className="text-[11px] text-muted-foreground uppercase tracking-[0.2em] font-medium">
+            {artwork.technique}
+          </p>
+          {/* Gold Separator */}
+          <div className="w-6 h-[1px] bg-primary/40 my-1 group-hover:w-12 transition-all duration-500" />
+          <p className="font-body text-sm font-light text-foreground/80">
+            {artwork.priceFormatted}
           </p>
         </div>
-        
-        <p className="text-xs text-muted-foreground font-body uppercase tracking-wide">
-          {artwork.technique} · {artwork.dimensions}
-        </p>
-
-        <button className="text-xs font-medium text-primary mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-fit">
-           Consultar <ArrowRight size={12} />
-        </button>
       </div>
     </motion.article>
   );
@@ -139,8 +135,8 @@ function useColumns() {
 
   useEffect(() => {
     const updateColumns = () => {
-      if (window.innerWidth >= 1024) setColumns(3); // Desktop
-      else if (window.innerWidth >= 640) setColumns(2); // Tablet
+      if (window.innerWidth >= 1280) setColumns(3); // Large Desktop
+      else if (window.innerWidth >= 768) setColumns(2); // Tablet
       else setColumns(1); // Mobile
     };
 
@@ -157,7 +153,7 @@ export const Catalog = () => {
   const [selectedArtworkId, setSelectedArtworkId] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [imageLoaded, setImageLoaded] = useState<Record<string, boolean>>({});
-  
+
   const columnsCount = useColumns();
 
   const filteredArtworks = useMemo(() => {
@@ -209,21 +205,31 @@ export const Catalog = () => {
   };
 
   return (
-    <section id="obras" className="py-24 bg-background">
-      <div className="container mx-auto px-6">
+    <section id="obras" className="py-32 relative">
+      {/* Background - Clean */}
+      <div className="absolute inset-0 pointer-events-none bg-background" />
+
+      <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20 relative"
         >
-          <h2 className="font-display text-3xl md:text-5xl font-medium text-foreground mb-4">
-            Obras Disponibles
+          {/* Vertical Gold Line Decoration */}
+          <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-[1px] h-8 bg-primary"></div>
+
+          <span className="text-primary text-[10px] font-bold uppercase tracking-[0.3em] mb-4 block">
+            Galería Exclusiva
+          </span>
+          <h2 className="font-display text-4xl md:text-5xl font-normal text-foreground mb-4">
+            Obras Selectas
           </h2>
-          <p className="text-muted-foreground font-body max-w-lg mx-auto">
-            Cada pieza es única, creada con dedicación en mi estudio de Isla Negra
+          <div className="w-16 h-[2px] bg-primary mx-auto mb-6"></div>
+          <p className="text-muted-foreground font-body max-w-lg mx-auto text-base font-light leading-relaxed">
+            Una mirada íntima al paisaje de la costa central.
           </p>
         </motion.div>
 
@@ -232,8 +238,8 @@ export const Catalog = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="flex flex-wrap justify-center gap-2 mb-12"
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="flex flex-wrap justify-center gap-4 mb-16"
         >
           {techniques.map((technique) => (
             <button
@@ -247,12 +253,12 @@ export const Catalog = () => {
         </motion.div>
 
         {/* Masonry Grid (React Implementation) */}
-        <div className="flex gap-6 items-start">
+        <div className="flex gap-8 items-start">
           {columns.map((col, colIndex) => (
-            <div key={colIndex} className="flex-1 flex flex-col gap-6">
+            <div key={colIndex} className="flex-1 flex flex-col gap-8">
               <AnimatePresence mode="popLayout">
                 {col.map((artwork, i) => (
-                  <GridItem 
+                  <GridItem
                     key={artwork.id}
                     artwork={artwork}
                     index={i}

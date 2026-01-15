@@ -13,9 +13,9 @@ interface ArtworkModalProps {
   hasPrev?: boolean;
 }
 
-export const ArtworkModal = ({ 
-  artwork, 
-  isOpen, 
+export const ArtworkModal = ({
+  artwork,
+  isOpen,
   onClose,
   onNext,
   onPrev,
@@ -59,154 +59,162 @@ export const ArtworkModal = ({
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
-          {/* Backdrop */}
+
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-6">
+          {/* Backdrop (Light Blur for Gallery feel) */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.5 }}
             onClick={onClose}
-            className="absolute inset-0 bg-foreground/80 backdrop-blur-sm"
+            className="absolute inset-0 bg-white/90 backdrop-blur-sm"
           />
 
-          {/* Navigation Buttons (Desktop) */}
+          {/* Navigation Buttons (Desktop) - Minimal Dark/Gold */}
           {hasPrev && (
             <button
               onClick={handlePrev}
-              className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-background/10 hover:bg-background/20 text-background backdrop-blur-md transition-all hover:scale-110"
+              className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 z-50 p-4 rounded-full border border-gray-200 bg-white hover:border-primary hover:text-primary text-gray-400 transition-all hover:scale-105 shadow-sm"
               aria-label="Obra anterior"
             >
-              <ChevronLeft size={32} />
-            </button>
-          )}
-          
-          {hasNext && (
-            <button
-              onClick={handleNext}
-              className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-background/10 hover:bg-background/20 text-background backdrop-blur-md transition-all hover:scale-110"
-              aria-label="Siguiente obra"
-            >
-              <ChevronRight size={32} />
+              <ChevronLeft size={24} strokeWidth={1} />
             </button>
           )}
 
-          {/* Modal */}
+          {hasNext && (
+            <button
+              onClick={handleNext}
+              className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 z-50 p-4 rounded-full border border-gray-200 bg-white hover:border-primary hover:text-primary text-gray-400 transition-all hover:scale-105 shadow-sm"
+              aria-label="Siguiente obra"
+            >
+              <ChevronRight size={24} strokeWidth={1} />
+            </button>
+          )}
+
+          {/* Modal Container - Marble White */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="relative w-full max-w-5xl bg-background rounded-2xl shadow-2xl z-50 overflow-hidden flex flex-col md:flex-row max-h-[90vh] md:h-[80vh]"
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="relative w-full h-full md:h-auto md:max-w-6xl md:aspect-[16/9] bg-[#FAFAFA] rounded-none shadow-2xl z-50 overflow-hidden flex flex-col md:flex-row border border-gray-100 selection:bg-primary/20"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-background/80 backdrop-blur-sm text-foreground hover:bg-accent transition-colors"
+              className="absolute top-4 right-4 z-50 p-2 rounded-full bg-white/80 text-foreground hover:bg-white hover:text-primary transition-colors shadow-sm"
               aria-label="Cerrar"
             >
-              <X size={20} strokeWidth={1.5} />
+              <X size={24} strokeWidth={1.5} />
             </button>
 
-            {/* Image Container */}
-            <div className="relative w-full md:w-[60%] h-[40vh] md:h-full bg-black/5 overflow-hidden group flex items-center justify-center">
+            {/* Image Section (Clean Gallery Wall) */}
+            <div className="relative w-full md:w-[65%] h-[50vh] md:h-full bg-zinc-50 flex items-center justify-center p-8 group overflow-hidden">
+
               <img
                 src={currentImage}
                 alt={artwork.title}
-                className="max-w-full max-h-full object-contain transition-transform duration-500"
+                className="relative z-10 max-w-full max-h-full object-contain shadow-xl transition-transform duration-700 hover:scale-[1.01]"
               />
-              
-              {/* Internal Image Navigation (for pairs) */}
+
+              {/* Internal Image Navigation */}
               {hasMultipleImages && (
                 <>
                   <button
                     onClick={toggleImage}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/20 hover:bg-black/40 text-white backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100"
+                    className="absolute left-6 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/80 text-foreground hover:text-primary backdrop-blur-md shadow-sm transition-all opacity-0 group-hover:opacity-100"
                   >
-                    <ChevronLeft size={24} />
+                    <ChevronLeft size={20} />
                   </button>
                   <button
                     onClick={toggleImage}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/20 hover:bg-black/40 text-white backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100"
+                    className="absolute right-6 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/80 text-foreground hover:text-primary backdrop-blur-md shadow-sm transition-all opacity-0 group-hover:opacity-100"
                   >
-                    <ChevronRight size={24} />
+                    <ChevronRight size={20} />
                   </button>
-                  
-                  {/* Indicators */}
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                    <div className={`w-2 h-2 rounded-full transition-colors ${currentImageIndex === 0 ? 'bg-white' : 'bg-white/50'}`} />
-                    <div className={`w-2 h-2 rounded-full transition-colors ${currentImageIndex === 1 ? 'bg-white' : 'bg-white/50'}`} />
-                  </div>
 
-                  <span className="absolute bottom-4 right-4 bg-black/50 text-white text-xs px-2 py-1 rounded backdrop-blur-sm">
-                    {currentImageIndex === 0 ? 'Original' : 'Zoom'}
-                  </span>
+                  {/* Indicators */}
+                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                    <div className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${currentImageIndex === 0 ? 'bg-primary w-4' : 'bg-gray-300'}`} />
+                    <div className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${currentImageIndex === 1 ? 'bg-primary w-4' : 'bg-gray-300'}`} />
+                  </div>
                 </>
               )}
-              
+
               {artwork.isMasterpiece && (
-                <span className="absolute top-4 left-4 tag-masterpiece z-10">
+                <span className="absolute top-6 left-6 bg-primary text-white px-3 py-1 text-[10px] uppercase tracking-widest font-bold shadow-sm z-20">
                   Obra Maestra
                 </span>
               )}
             </div>
 
-            {/* Content */}
-            <div className="flex-1 p-6 md:p-8 overflow-y-auto flex flex-col">
+            {/* Details Section - Editorial Style */}
+            <div className="flex-1 p-8 md:p-12 overflow-y-auto bg-white border-l border-gray-100 flex flex-col">
               <div className="flex-1">
-                <h2 className="font-display text-2xl md:text-3xl font-medium text-foreground mb-2">
-                  {artwork.title}
-                </h2>
-                
-                <div className="flex flex-wrap gap-3 mb-6">
-                  <span className="text-sm font-body text-muted-foreground bg-accent px-3 py-1 rounded-full">
-                    {artwork.technique}
+                <div className="mb-8">
+                  <span className="text-primary text-[10px] font-bold uppercase tracking-[0.3em] mb-4 block">
+                    Detalles de la Obra
                   </span>
-                  <span className="text-sm font-body text-muted-foreground border border-border px-3 py-1 rounded-full">
-                    {artwork.dimensions}
-                  </span>
-                </div>
+                  <h2 className="font-display text-3xl md:text-4xl font-normal text-foreground mb-4 tracking-tight">
+                    {artwork.title}
+                  </h2>
+                  <div className="w-12 h-[2px] bg-primary mb-8" />
 
-                {artwork.description && (
-                  <p className="text-body text-muted-foreground mb-8 leading-relaxed">
-                    {artwork.description}
-                  </p>
-                )}
+                  <div className="flex flex-wrap gap-4 mb-8">
+                    <div className="flex flex-col">
+                      <span className="text-[10px] text-muted-foreground uppercase tracking-widest mb-1">Técnica</span>
+                      <span className="text-sm font-medium text-foreground border-b border-gray-200 pb-1">{artwork.technique}</span>
+                    </div>
+                    <div className="flex flex-col ml-4">
+                      <span className="text-[10px] text-muted-foreground uppercase tracking-widest mb-1">Dimensiones</span>
+                      <span className="text-sm font-medium text-foreground border-b border-gray-200 pb-1">{artwork.dimensions}</span>
+                    </div>
+                  </div>
+
+                  {artwork.description && (
+                    <p className="text-muted-foreground text-base font-light leading-relaxed">
+                      {artwork.description}
+                    </p>
+                  )}
+                </div>
               </div>
 
-              <div className="mt-auto pt-6 border-t border-border">
-                <div className="flex flex-col gap-4">
-                  <div>
-                    <p className="text-sm text-muted-foreground font-body mb-1">Precio</p>
-                    <p className="font-display text-2xl md:text-3xl font-medium text-foreground">
-                      {artwork.priceFormatted}
-                    </p>
+              <div className="mt-auto pt-8 border-t border-gray-100">
+                <div className="flex flex-col gap-6">
+                  <div className="flex justify-between items-end">
+                    <div>
+                      <p className="text-xs text-muted-foreground uppercase tracking-widest mb-1">Precio Colección</p>
+                      <p className="font-display text-3xl font-normal text-foreground">
+                        {artwork.priceFormatted}
+                      </p>
+                    </div>
                   </div>
 
                   <a
                     href={whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-primary flex items-center justify-center gap-2 w-full"
+                    className="btn-primary flex items-center justify-center gap-3 w-full text-center group"
                   >
                     <MessageCircle size={18} strokeWidth={1.5} />
-                    Coordinar Compra
+                    <span>Solicitar Pieza</span>
                   </a>
 
                   {/* Mobile Navigation */}
-                  <div className="flex md:hidden justify-between gap-4 mt-4">
+                  <div className="flex md:hidden justify-between gap-4 mt-2">
                     <button
                       onClick={handlePrev}
                       disabled={!hasPrev}
-                      className="flex-1 py-3 px-4 rounded-lg bg-accent text-foreground disabled:opacity-50 font-medium text-sm flex items-center justify-center gap-2"
+                      className="flex-1 py-4 px-4 border border-gray-200 text-foreground disabled:opacity-30 text-xs uppercase tracking-widest flex items-center justify-center gap-2 active:bg-gray-50"
                     >
                       <ChevronLeft size={16} /> Anterior
                     </button>
                     <button
                       onClick={handleNext}
                       disabled={!hasNext}
-                      className="flex-1 py-3 px-4 rounded-lg bg-accent text-foreground disabled:opacity-50 font-medium text-sm flex items-center justify-center gap-2"
+                      className="flex-1 py-4 px-4 border border-gray-200 text-foreground disabled:opacity-30 text-xs uppercase tracking-widest flex items-center justify-center gap-2 active:bg-gray-50"
                     >
                       Siguiente <ChevronRight size={16} />
                     </button>

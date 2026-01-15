@@ -3,153 +3,80 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
 
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap");
-
-/* Isla Negra Minimal Design System */
+/* Sistema de Diseño Premium Art Gallery - Marble & Gold */
 
 @layer base {
   :root {
-    /* Core Palette - Warm Coastal Minimalism */
-    --background: 0 0% 96%;
-    --foreground: 0 0% 9%;
+    /* Paleta Principal - Mármol & Oro Satinado */
+    --background: 0 0% 98%;
+    /* #FAFAFA - Marble White */
+    --foreground: 0 0% 7%;
+    /* #111111 - Charcoal */
 
     --card: 0 0% 98%;
-    --card-foreground: 0 0% 9%;
+    --card-foreground: 0 0% 7%;
 
-    --popover: 0 0% 89%;
-    --popover-foreground: 0 0% 9%;
+    --popover: 0 0% 98%;
+    --popover-foreground: 0 0% 7%;
 
-    /* Muted Terracotta - Earthy Chilean Coast */
-    --primary: 161 93% 30%;
-    --primary-foreground: 151 80% 95%;
+    /* Colores de Marca */
+    --primary: 40 47% 56%;
+    /* #C5A059 - Satin Gold */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 32%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 7%;
 
-    --muted: 0 0% 63%;
-    --muted-foreground: 0 0% 9%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
+    /* #666666 - Stone Grey */
 
-    /* Accent - Warm Stone */
-    --accent: 166 76% 96%;
-    --accent-foreground: 173 80% 40%;
+    --accent: 40 47% 56%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 72% 50%;
-    --destructive-foreground: 0 85% 97%;
+    --destructive: 0 60% 40%;
+    --destructive-foreground: 0 0% 98%;
 
     --border: 0 0% 83%;
+    /* #d4d4d4 - Very subtle border */
     --input: 0 0% 83%;
-    --ring: 161 93% 30%;
+    --ring: 40 47% 56%;
 
-    --radius: 0.75rem;
+    --radius: 0rem;
+    /* Bordes rectos y nítidos para elegancia clásica */
 
-    /* Custom Tokens */
-    --terracotta: 15 35% 48%;
-    --terracotta-light: 15 30% 60%;
-    --terracotta-dark: 15 40% 38%;
-    --charcoal: 0 0% 20%;
-    --charcoal-light: 0 0% 35%;
-    --cream: 30 20% 98%;
-    --cream-warm: 35 25% 95%;
-    --stone: 30 10% 85%;
-
-    /* WhatsApp Green */
-    --whatsapp: 142 70% 45%;
+    /* WhatsApp Green - Normal */
+    --whatsapp: 142 70% 50%;
     --whatsapp-foreground: 0 0% 100%;
 
-    /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(0 0% 20% / 0.08);
-    --shadow-medium: 0 8px 30px -6px hsl(0 0% 20% / 0.12);
-    --shadow-artwork: 0 12px 40px -8px hsl(0 0% 20% / 0.15);
+    /* Sombras Minimalistas (Casi inexistentes o muy sutiles) */
+    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.03);
+    --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.04);
+    --shadow-artwork: 0 12px 32px rgba(0, 0, 0, 0.06);
 
-    --sidebar-background: 30 20% 98%;
-    --sidebar-foreground: 0 0% 9%;
-    --sidebar-primary: 161 93% 30%;
-    --sidebar-primary-foreground: 151 80% 95%;
-    --sidebar-accent: 0 0% 32%;
-    --sidebar-accent-foreground: 0 0% 98%;
+    /* Variables de Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 7%;
+    --sidebar-primary: 40 47% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 7%;
     --sidebar-border: 0 0% 83%;
-    --sidebar-ring: 161 93% 30%;
-    --chart-1: 158 64% 51%;
-    --chart-2: 141 69% 58%;
-    --chart-3: 172 66% 50%;
-    --chart-4: 82 77% 55%;
-    --chart-5: 0 0% 45%;
-    --sidebar: 0 0% 98%;
-    --font-sans: 'Work Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
-    --font-serif: 'Lora', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
-    --font-mono: 'Inconsolata', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
-    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
-    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
-    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
-    --tracking-normal: 0em;
-    --spacing: 0.25rem;
+    --sidebar-ring: 40 47% 56%;
   }
 
   .dark {
-    --background: 0 0% 9%;
-    --foreground: 0 0% 98%;
-
-    --card: 0 0% 14%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 0 0% 25%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 158 64% 51%;
-    --primary-foreground: 165 91% 9%;
-
-    --secondary: 0 0% 45%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 0 0% 45%;
-    --muted-foreground: 0 0% 98%;
-
-    --accent: 178 84% 10%;
-    --accent-foreground: 172 66% 50%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 85% 97%;
-
-    --border: 0 0% 32%;
-    --input: 0 0% 32%;
-    --ring: 158 64% 51%;
-
-    --terracotta: 15 40% 55%;
-    --terracotta-light: 15 35% 65%;
-    --charcoal: 30 15% 92%;
-    --cream: 0 0% 8%;
-    --stone: 0 0% 25%;
-    --chart-1: 156 71% 66%;
-    --chart-2: 141 76% 73%;
-    --chart-3: 170 76% 64%;
-    --chart-4: 81 84% 67%;
-    --chart-5: 0 0% 45%;
-    --sidebar: 0 0% 14%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 158 64% 51%;
-    --sidebar-primary-foreground: 165 91% 9%;
-    --sidebar-accent: 172 66% 50%;
-    --sidebar-accent-foreground: 178 84% 10%;
-    --sidebar-border: 0 0% 32%;
-    --sidebar-ring: 158 64% 51%;
-    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
-    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
-    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
-    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+    /* No se usa modo oscuro, forzamos light luxury */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 7%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 7%;
+    --primary: 40 47% 56%;
+    --primary-foreground: 0 0% 100%;
+    --accent: 40 47% 56%;
+    --accent-foreground: 0 0% 100%;
   }
 }
 
@@ -164,70 +91,71 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    /* Montserrat para cuerpo */
+    background-image: none;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Playfair Display', Georgia, serif;
-    @apply tracking-tight;
+    @apply tracking-wide text-foreground;
+    /* Títulos negros de alto contraste */
   }
 }
 
 @layer components {
   .heading-display {
     font-family: 'Playfair Display', Georgia, serif;
-    @apply text-foreground font-medium tracking-tight;
+    @apply text-foreground font-medium tracking-wide;
   }
 
   .text-body {
-    font-family: 'Inter', system-ui, sans-serif;
-    @apply text-foreground/80 leading-relaxed;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    @apply text-muted-foreground leading-relaxed font-light;
   }
 
+  /* Botones de Lujo Minimalistas */
   .btn-primary {
-    @apply bg-primary text-primary-foreground px-6 py-3 rounded-md font-medium
-           transition-all duration-300 ease-out
-           hover:opacity-90 hover:shadow-md active:scale-[0.98];
+    @apply bg-transparent text-primary px-8 py-3 rounded-none font-medium tracking-[0.2em] text-xs uppercase transition-all duration-300 ease-out border border-primary hover:bg-primary hover:text-white hover:shadow-lg hover:shadow-primary/10;
   }
 
   .btn-outline {
-    @apply border border-foreground/20 text-foreground px-6 py-3 rounded-md font-medium
-           transition-all duration-300 ease-out
-           hover:bg-foreground hover:text-background active:scale-[0.98];
+    @apply border border-foreground/10 text-foreground/80 px-8 py-3 rounded-none font-medium tracking-[0.2em] text-xs uppercase transition-all duration-300 ease-out bg-transparent hover:bg-foreground/5 hover:border-foreground/30;
   }
 
-  .link-subtle {
-    @apply text-muted-foreground transition-colors duration-200 hover:text-primary;
+  /* Tarjetas de Museo */
+  .frame-gallery {
+    @apply relative bg-transparent p-0 transition-all duration-500 ease-out;
+    /* Eliminamos sombras y bordes por defecto, dejamos que la obra respire */
   }
 
-  .card-artwork {
-    @apply bg-card rounded-lg overflow-hidden shadow-[var(--shadow-soft)]
-           transition-all duration-500 ease-out
-           hover:shadow-[var(--shadow-artwork)] hover:-translate-y-1;
+  .frame-gallery:hover {
+    @apply z-10;
+  }
+
+  /* Eliminamos spotlight/overlays complejos, usamos opacidad sutil */
+  .spotlight-effect {
+    display: none;
   }
 
   .tag-masterpiece {
-    @apply inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wider;
+    @apply inline-block bg-primary text-white px-3 py-1 rounded-none text-[10px] font-semibold uppercase tracking-widest shadow-sm;
   }
 
   .filter-tab {
-    @apply px-4 py-2 text-sm font-medium text-muted-foreground rounded-full
-           transition-all duration-300 ease-out
-           hover:text-foreground hover:bg-accent;
+    @apply px-4 py-2 text-xs uppercase tracking-[0.2em] font-medium text-muted-foreground rounded-none border-b-2 border-transparent transition-all duration-300 ease-out bg-transparent hover:text-foreground;
   }
 
   .filter-tab-active {
-    @apply bg-foreground text-background;
+    @apply text-primary border-primary;
   }
 
   .whatsapp-float {
-    @apply fixed bottom-6 right-6 z-50 bg-[hsl(var(--whatsapp))] text-white
-           w-14 h-14 rounded-full flex items-center justify-center
-           shadow-lg transition-transform duration-300
-           hover:scale-110 active:scale-95;
+    @apply fixed bottom-8 right-8 z-50 bg-[#25D366] text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95;
   }
-}
-
-@layer utilities {
-  /* Masonry Grid Utilities removed - handled by React component for organic layout */
 }
