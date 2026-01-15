@@ -52,14 +52,7 @@ export const Hero = () => {
           </span>
         </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.4, ease: 'easeOut' }}
-          className="text-muted-foreground font-body text-sm md:text-xl max-w-[85%] md:max-w-md mx-auto mb-16 font-light leading-relaxed px-2 pt-6"
-        >
-          Creando atmósferas únicas desde mi estudio en Isla Negra.
-        </motion.p>
+
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
